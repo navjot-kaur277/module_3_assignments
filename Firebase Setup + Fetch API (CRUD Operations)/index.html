@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Management (Firebase)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Firebase v9 CDN (Modular SDK) -->
+  <script type="module">
+    // Import Firebase SDKs from CDN so you don't need Node.js
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    window._firebaseModules = { initializeApp, getFirestore }; // expose for firebase.js
+  </script>
+</head>
+<body>
+  <header class="header">
+    <h1>Book Management Web App</h1>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <h2>Add a new book</h2>
+      <form id="book-form">
+        <label>Title</label>
+        <input id="title" type="text" placeholder="e.g., Atomic Habits" required />
+        <label>Author</label>
+        <input id="author" type="text" placeholder="e.g., James Clear" required />
+        <label>Price</label>
+        <input id="price" type="number" min="0" placeholder="e.g., 499" required />
+        <label>Image URL</label>
+        <input id="image" type="url" placeholder="https://..." required />
+        <button type="submit">Add Book</button>
+      </form>
+
+      <div class="tips">
+        <p><strong>Tip:</strong> Add 5–6 books to test the grid and actions.</p>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div id="book-grid" class="book-grid"></div>
+    </section>
+  </main>
+
+  <!-- Modal for View Details -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="close-modal" class="close">×</button>
+      <img id="modal-img" alt="Book cover" />
+      <h3 id="modal-title"></h3>
+      <p id="modal-author"></p>
+      <p id="modal-price"></p>
+      <p id="modal-id" class="muted"></p>
+    </div>
+  </div>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
