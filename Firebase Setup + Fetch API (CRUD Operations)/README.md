@@ -51,8 +51,7 @@ book-management/
 
 ## 📦 Submission
 Assignment submitted via GitHub link:  
-<!-- `https://github.com/yourusername/book-management-firebase` -->
-
+https://github.com/navjot-kaur277/MODULE-3-ASSIGNMENTS/tree/main/Firebase%20Setup%20%2B%20Fetch%20API%20(CRUD%20Operations)
 ---
 
 ## 👨‍💻 Author
