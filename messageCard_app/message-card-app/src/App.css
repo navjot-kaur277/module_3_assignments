@@ -1,0 +1,119 @@
+/* --- Global Resets & Typography --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap');
+
+:root {
+  font-family: 'Poppins', sans-serif;
+  /* A dark, modern background to make colors pop */
+  background: #1a1a2e; 
+  color: #eee;
+  min-height: 100vh;
+}
+
+body {
+    margin: 0;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* --- Creative Heading Style --- */
+.main-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 60px;
+  /* Gradient Text Effect */
+  background: linear-gradient(to right, #FF0099, #493240);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* --- The Grid --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- The Creative Card Base Style --- */
+.card {
+  border-radius: 20px;
+  padding: 35px;
+  position: relative;
+  overflow: hidden; /* Ensures inner decorations don't spill out */
+  text-align: left;
+  color: white;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  cursor: default;
+}
+
+/* --- Hover Effects --- */
+.card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+}
+
+/* --- Typography inside the card --- */
+.card-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.card-message {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.95;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- MAGIC PART: Giving each card a unique creative gradient --- */
+/* We use :nth-child selector so we don't need to change React code */
+
+/* Card 1 Style: Sunset Vibes */
+.card:nth-child(1) {
+    background: linear-gradient(45deg, #ff6b6b, #556270);
+}
+
+/* Card 2 Style: Sunny Disposition */
+.card:nth-child(2) {
+    background: linear-gradient(45deg, #FDC830, #F37335);
+}
+
+/* Card 3 Style: Ocean Blue */
+.card:nth-child(3) {
+    background: linear-gradient(45deg, #00B4DB, #0083B0);
+}
+
+/* Card 4 Style: Deep Purple */
+.card:nth-child(4) {
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+/* --- Advanced Decorative "Glass" effect element on top right --- */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(10px);
+}
