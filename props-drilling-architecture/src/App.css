@@ -1,0 +1,178 @@
+/* =========================================
+   1. GLOBAL RESET & BASICS
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0f172a; /* Deep Navy Background */
+  color: #e2e8f0;            /* Light Grey Text */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* =========================================
+   2. APP CONTAINER & TYPOGRAPHY
+   ========================================= */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+header h1 {
+  /* Gradient Text Effect */
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+header p {
+  color: #94a3b8;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+/* =========================================
+   3. CARD SYSTEM (The Recursive Boxes)
+   ========================================= */
+.card {
+  border-radius: 12px;
+  padding: 20px;       /* Spacing inside each box */
+  margin: 15px;        /* Spacing outside each box */
+  
+  /* Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.03); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  
+  /* Shadows for depth */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-header {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 5px;
+}
+
+.card-content {
+  background: rgba(0, 0, 0, 0.3); /* Darker inner area for text */
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+h4 {
+  font-family: 'Courier New', Courier, monospace; /* Code-like font for props */
+  color: #38bdf8; /* Cyan color */
+  font-size: 0.95rem;
+  margin: 4px 0;
+}
+
+/* =========================================
+   4. COMPONENT SPECIFIC STYLES (The Colors)
+   ========================================= */
+
+/* Component 1: Root */
+.comp-1 {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+  border-top: 4px solid #64748b;
+  min-height: 500px;
+}
+
+/* Component 2: The "Useless" Middleman */
+.comp-2 {
+  background: rgba(51, 65, 85, 0.2);
+  border-left: 4px solid #ef4444; /* Red Warning Color */
+}
+.badge-warning {
+  background: #ef4444;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
+
+/* Component 3 */
+.comp-3 {
+  border-left: 4px solid #f59e0b; /* Amber */
+}
+
+/* Component 4 */
+.comp-4 {
+  border-left: 4px solid #10b981; /* Emerald */
+}
+
+/* Component 5 */
+.comp-5 {
+  border-left: 4px solid #3b82f6; /* Blue */
+}
+
+/* Component 6: The Destination (Animated) */
+.comp-6 {
+  background: rgba(139, 92, 246, 0.1);
+  border: 2px dashed #8b5cf6; /* Violet */
+  margin: 0;
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px rgba(139, 92, 246, 0.2); }
+  to { box-shadow: 0 0 20px rgba(139, 92, 246, 0.6); }
+}
+
+.description {
+  margin-bottom: 20px;
+  font-style: italic;
+  color: #94a3b8;
+}
+
+/* =========================================
+   5. RESPONSIVE FIXES (Crucial for nesting)
+   ========================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  .card {
+    padding: 10px;
+    margin: 10px 5px; /* Reduce margin on sides */
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .card-header {
+    font-size: 0.75rem;
+  }
+}
